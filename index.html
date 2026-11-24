@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PhysicsLab — 물리 법칙 시각화</title>
+  <meta name="description" content="고전역학부터 양자장론까지, 물리 법칙의 수식에 값을 넣고 시뮬레이션으로 이해하는 시각화 앱">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d142c'/%3E%3Cpath d='M4 16c3-9 6-9 8 0s5 9 8 0 5-9 8 0' fill='none' stroke='%236a8dff' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- 수식 렌더링(KaTeX). 오프라인이면 수식 원문이 대신 표시됩니다. -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="js/engine.js"></script>
+  <script defer src="js/fields/classical1.js"></script>
+  <script defer src="js/fields/classical2.js"></script>
+  <script defer src="js/fields/thermo.js"></script>
+  <script defer src="js/fields/em.js"></script>
+  <script defer src="js/fields/relativity.js"></script>
+  <script defer src="js/fields/quantum.js"></script>
+  <script defer src="js/fields/modern.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#111a37"/><path d="M4 16c3-9 6-9 8 0s5 9 8 0 5-9 8 0" fill="none" stroke="#6a8dff" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <b>PhysicsLab</b><small>물리 법칙 시각화</small>
+    </a>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="법칙 검색 — 예: 운동량, 슈뢰딩거, 쿨롱" autocomplete="off" spellcheck="false">
+      <kbd>/</kbd>
+      <div id="results" hidden></div>
+    </div>
+  </header>
+  <main id="view"></main>
+  <footer>PhysicsLab · 순수 HTML/JavaScript 캔버스 시뮬레이션 · 수식 렌더링 KaTeX · <span id="law-count"></span>개 법칙</footer>
+</body>
+</html>
