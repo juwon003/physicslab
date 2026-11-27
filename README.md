@@ -13,7 +13,7 @@ This is a web app that explores 125 laws across 6 fields of physics through math
 
 ## How to run
 
-- The simplest method: Double-click `index.html` to open it in a web browser (such as Chrome or Edge). No additional installation or build process is required.
+- The simplest method: double-click the `index.html` file or visit `https://juwon003.github.io/physicslab/` to open it in a web browser (such as Chrome or Edge). No additional installation or build process is required.
 - Mathematical formulas are rendered by loading KaTeX from the internet. If you are offline, the formulas will appear as raw LaTeX code, while the simulations will continue to function as usual.
 - To open it on a local server, run the following command in this folder, then access `http://localhost:8000`.
 
