@@ -1,48 +1,48 @@
-# PhysicsLab — 물리 법칙 시각화 앱
+# PhysicsLab — Visualization Module for Laws of Physics
 
-물리학의 6개 분야, 125개 법칙을 수식 · 값 입력 · 실시간 시뮬레이션으로 살펴보는 웹 앱입니다.
+This is a web app that explores 125 laws across 6 fields of physics through mathematical formulas, parameter inputs, and real-time simulations.
 
-| 분야 | 법칙 수 | 분류 |
+| Field | Number of laws | Classification |
 |---|---|---|
-| 고전역학 | 34 | 뉴턴의 운동 법칙 · 운동학 · 운동량과 충돌 · 일과 에너지 · 회전 운동 · 중력 · 진동 · 파동 · 유체역학 · 해석역학 |
-| 열역학 · 통계역학 | 17 | 열역학 법칙 · 이상 기체 · 열기관과 열전달 · 통계역학 |
-| 전자기학 · 광학 | 19 | 정전기학 · 전류와 회로 · 자기장 · 전자기 유도 · 전자기파 · 광학 |
-| 상대성이론 | 17 | 특수 상대성이론 · 상대론적 에너지 · 일반 상대성이론 · 우주론 |
-| 양자역학 | 16 | 양자론의 기원 · 원자 구조 · 파동역학 · 스핀과 양자 정보 |
-| 양자장론 · 입자물리 · 응집물리 | 22 | 양자장론 · 입자물리학 · 핵물리 · 응집물리학 |
+| Classical mechanics | 34 | Newton's Laws of Motion · Kinematics · Momentum and Collisions · Work and Energy · Rotational Motion · Gravity · Oscillations · Waves · Fluid Mechanics · Analytical Mechanics |
+| Thermodynamics · Statistical Mechanics | 17 | Laws of Thermodynamics · Ideal Gas · Heat Engines and Heat Transfer · Statistical Mechanics |
+| Electromagnetism · Optics | 19 | Electrostatics · Electric Current and Circuits · Magnetic Fields · Electromagnetic Induction · Electromagnetic Waves · Optics |
+| Theory of Relativity | 17 | Special relativity · Relativistic energy · General relativity · Cosmology |
+| Quantum mechanics | 16 | Origins of Quantum Theory · Atomic Structure · Wave Mechanics · Spin and Quantum Information |
+| Quantum Field Theory · Particle Physics · Condensed Matter Physics | 22 | Quantum Field Theory · Particle Physics · Nuclear Physics · Condensed Matter Physics |
 
-## 실행 방법
+## How to run
 
-- **가장 간단한 방법:** `index.html`을 더블클릭해 브라우저(Chrome, Edge 등)로 엽니다. 별도 설치나 빌드가 필요 없습니다.
-- 수식은 인터넷에서 KaTeX를 불러와 그립니다. 오프라인이면 수식이 LaTeX 원문으로 표시되고, 시뮬레이션은 그대로 동작합니다.
-- 로컬 서버로 열고 싶다면 이 폴더에서 다음을 실행한 뒤 `http://localhost:8000`에 접속합니다.
+- The simplest method: Double-click `index.html` to open it in a web browser (such as Chrome or Edge). No additional installation or build process is required.
+- Mathematical formulas are rendered by loading KaTeX from the internet. If you are offline, the formulas will appear as raw LaTeX code, while the simulations will continue to function as usual.
+- To open it on a local server, run the following command in this folder, then access `http://localhost:8000`.
 
 ```powershell
 python -m http.server 8000
 ```
 
-## 사용법
+## How to use
 
-1. 홈에서 분야를 고르면 그 분야의 모든 법칙이 분류별로 나타납니다.
-2. 법칙을 누르면 수식, 설명, 값 입력란, 시뮬레이션, 계산 결과가 나타납니다.
-3. 슬라이더를 움직이거나 숫자 칸에 값을 직접 입력하면(Enter) 수식에 값이 대입되고 시각화가 즉시 바뀝니다.
-4. 시뮬레이션 아래 버튼으로 일시정지(스페이스 바), 다시 시작, 속도 조절, 기본값 복원을 할 수 있습니다.
-5. 일부 시뮬레이션은 캔버스를 드래그해 전하·물체를 옮기거나 3차원 장면을 회전할 수 있습니다.
-6. 상단 검색창(`/` 키)에서 법칙 이름을 한글이나 영어로 찾을 수 있습니다.
+1. Select a field on the home screen to view all the laws within that category, organized by classification.
+2. Click on a specific law to display its formula, explanation, input fields, simulation, and calculation results.
+3. Adjust the sliders or enter values ​​directly into the input boxes (followed by the Enter key) to apply these values ​​to the formula and instantly update the visualization.
+4. Use the controls below the simulation to pause (spacebar), resume, adjust the speed, or reset to default values.
+5. In some simulations, you can drag on the canvas to move charges or objects, or rotate 3D scenes.
+6. Use the search bar at the top (or press the `/` key) to find laws by name in either Korean or English.
 
-## 폴더 구조
+## Folder structure
 
 ```
-index.html              진입점
-css/style.css           화면 스타일
-js/engine.js            물리 상수, 수치 도구(RK4 등), 그리기·그래프 도구, 시뮬레이션 실행기
-js/app.js               화면 구성(홈·분야·법칙), 값 입력, 검색, 주소(#/분야/법칙) 처리
-js/fields/*.js          분야별 법칙 정의와 시뮬레이션
+index.html              Entry point
+css/style.css           Screen style
+js/engine.js            Physical constants, numerical tools (such as RK4), plotting and graphing tools, and a simulation runner
+js/app.js               Screen layout (Home, Category, Principle), value input, search, and URL (#/category/principle) handling
+js/fields/*.js          Definition of Laws and Simulation by Field
 ```
 
-## 법칙 추가하기
+## Add a rule
 
-`js/fields/` 안의 파일에서 `PL.add(분야id, {...})`로 법칙을 등록합니다. 시뮬레이션은 900×560 좌표계에 그립니다.
+Register rules using `PL.add(fieldId, {...})` within the files located in `js/fields/`. The simulation is rendered on a 900×560 coordinate system.
 
 ```js
 PL.add('classical', {
@@ -58,4 +58,4 @@ PL.add('classical', {
 });
 ```
 
-입력 값 종류: `PL.R`(슬라이더 + 숫자 입력, `{ log: 1 }`이면 로그 눈금, `{ reset: 1 }`이면 값이 바뀔 때 시뮬레이션 재시작), `PL.Sel`(선택 목록), `PL.Chk`(켜기/끄기).
+Input value types: `PL.R` (slider + numeric input; `{ log: 1 }` enables a logarithmic scale, while `{ reset: 1 }` triggers a simulation restart whenever the value changes), `PL.Sel` (selection list), and `PL.Chk` (on/off toggle).
